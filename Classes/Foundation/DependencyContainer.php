@@ -17,12 +17,12 @@ class DependencyContainer
     function __construct()
     {
 
-        $this->InitialiseInjection($this);
+        $this->InitialiseInjection();
     }
 
-    private function InitialiseInjection($container)
+    private function InitialiseInjection()
     {
-        $WarpObjectObjFcn = function ($container) {
+        $WarpObjectObjFcn = function () {
             /** @var WarpObject $WarpObjectObj */
             $WarpObjectObj = new WarpObject();
             return $WarpObjectObj;
