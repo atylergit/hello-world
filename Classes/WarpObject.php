@@ -11,7 +11,7 @@
  * @modifications..:
  *
  ******************************************************************************************/
-class initializeWarpObject
+class WarpObject
 {
     /**
      * initializeWarpObject constructor.
