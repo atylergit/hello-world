@@ -1,6 +1,6 @@
 <?php
-require_once('Classes/start.php');
+require_once(__DIR__ . '/start.php');
 
-$init = new initializeWarpObject();
+$initObj = new initializeWarpObject();
 
-$init->SayHello();
+echo $initObj->GetHelloWorld();
