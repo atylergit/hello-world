@@ -24,7 +24,7 @@ class TemplateLoaderObj
 
     public function GetTemplate($templateName)
     {
-        $templateFileName = $templateName . '.html';
+        $templateFileName = $this->configObj->templatePath . $templateName . '.html';
         if (!$this->CheckTemplateFileExists($templateFileName)) {
             throw new Exception('Template file does not exist');
         }
@@ -53,7 +53,7 @@ class TemplateLoaderObj
     {
         $itExists = false;
 
-        if (file_exists($this->configObj->templatePath . $templateFileName)) {
+        if (file_exists($templateFileName)) {
             $itExists = true;
         }
 
