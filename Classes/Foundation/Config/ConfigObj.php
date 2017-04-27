@@ -28,13 +28,12 @@ class ConfigObj
 
     function __construct()
     {
-        $this->rootPath = $_SERVER["DOCUMENT_ROOT"] . '/foo/hello-world';
+        $this->rootPath = $_SERVER["DOCUMENT_ROOT"] . 'foo/hello-world';
 
         $this->templatePath = $this->rootPath . '/Templates/';
     }
 
     function __destruct()
     {
-        // TODO: Implement __destruct() method.
     }
 }

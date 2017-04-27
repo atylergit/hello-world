@@ -15,7 +15,7 @@ class TemplateLoaderObj
 {
     function __construct(ConfigObj $configObj)
     {
-        $this->configObj;
+        $this->configObj = $configObj;
     }
 
     function __destruct()
