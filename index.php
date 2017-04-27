@@ -6,4 +6,10 @@ $templateObj = $container->TemplateLoaderObj;
 
 $templateObj->AddTemplateVariable('today',date('m/d/Y'));
 
-echo $templateObj->GetTemplate('hello-world');
+$template = $templateObj->GetTemplate('hello-world');
+
+$templateObj->AddTemplateVariable('serverPath',$container->ConfigObj->rootPath);
+
+$template .= $templateObj->GetTemplate('foo-bar');
+
+echo $template;
