@@ -30,7 +30,7 @@ class ConfigObj
     {
         $this->rootPath = $_SERVER["DOCUMENT_ROOT"] . '/foo/hello-world';
 
-        $this->templatePath = $this->rootPath . '/Templates';
+        $this->templatePath = $this->rootPath . '/Templates/';
     }
 
     function __destruct()
