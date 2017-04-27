@@ -11,17 +11,24 @@
  ******************************************************************************************/
 class DependencyContainer
 {
+    /** @var  ConfigObj $ConfigObj */
+    public $ConfigObj;
+
     /** @var  WarpObject $WarpObjectObj */
     public $WarpObjectObj;
 
+    /** @var  TemplateLoaderObj $TemplateLoaderObj */
+    public $TemplateLoaderObj;
+
     function __construct()
     {
-
         $this->InitialiseInjection();
     }
 
     private function InitialiseInjection()
     {
-        $this->WarpObjectObj = new WarpObject();
+        $this->ConfigObj         = new ConfigObj();
+        $this->WarpObjectObj     = new WarpObject();
+        $this->TemplateLoaderObj = new TemplateLoaderObj($this->ConfigObj);
     }
 }
