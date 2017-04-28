@@ -17,8 +17,8 @@ class DependencyContainer
     /** @var  TemplateLoaderObj $TemplateLoaderObj */
     public $TemplateLoaderObj;
 
-    /** @var  AjaxDoSomethingObj $DoSomethingObj */
-    public $DoSomethingObj;
+    /** @var  AjaxDoSomethingObj $AjaxDoSomethingObj */
+    public $AjaxDoSomethingObj;
 
     function __construct()
     {
@@ -27,8 +27,8 @@ class DependencyContainer
 
     private function InitialiseInjection()
     {
-        $this->ConfigObj         = new ConfigObj();
-        $this->TemplateLoaderObj = new TemplateLoaderObj($this->ConfigObj);
-        $this->DoSomethingObj    = new AjaxDoSomethingObj($this->ConfigObj);
+        $this->ConfigObj          = new ConfigObj();
+        $this->TemplateLoaderObj  = new TemplateLoaderObj($this->ConfigObj);
+        $this->AjaxDoSomethingObj = new AjaxDoSomethingObj($this->ConfigObj);
     }
 }
