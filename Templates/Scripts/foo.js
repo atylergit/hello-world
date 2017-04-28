@@ -6,7 +6,8 @@ $(document).on('click', "#DoSomethingButton", function () {
     jQuery.post("Ajax/ajaxGateway.php", {command:'DoSomething'}, function(data){
         var result = JSON.parse(data);
         $("#buttonResults").html('<p>'+ result.friendlyText +'</p>');
-        $("#buttonResults").className = 'alert alert-success';
+        $("#buttonResults").removeClass();
+        $("#buttonResults").removeClass();
     });
 });
 
@@ -14,6 +15,7 @@ $(document).on('click', "#TriggerErrorButton", function () {
     jQuery.post("Ajax/ajaxGateway.php", {command:'triggerError'}, function(data){
         var result = JSON.parse(data);
         $("#buttonResults").html('<p>'+ result.friendlyText +'</p>');
-        $("#buttonResults").className = 'alert alert-danger';
+        $("#buttonResults").removeClass();
+        $("#buttonResults").addClass('alert alert-danger');
     });
 });
