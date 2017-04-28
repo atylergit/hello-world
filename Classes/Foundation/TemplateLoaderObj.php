@@ -43,6 +43,33 @@ class TemplateLoaderObj
         $this->replacements["{$variableName}"] = $value;
     }
 
+    public function AddLoopContent($loopKey, $array, $type, $tag, $br = false, $count = null)
+    {
+        $loopContent = '';
+        switch ($type) {
+            case 'for':
+                if(is_null($count) || !is_int($count)) {
+                    throw new Exception('Count required in loop type "for, Invalid Parameter"');
+                    break;
+                }
+                for($i=0; $i<$count; $i++) {
+                    $loopContent .= "<{$tag} id='$array[$i]'>{$array[$i]}</{$tag}>" . $br == true?'</br>':'';
+                }
+                break;
+            case 'foreach':
+                foreach ($array as $key => $value) {
+                    $loopContent .= "<{$tag} id='{$key}'>{$value}</{$tag}>" . $br == true?'</br>':'';
+                }
+                break;
+            case 'while':
+                break;
+            default:
+                throw new Exception('Type not give, Invalid Parameter');
+                break;
+        }
+        $this->AddTemplateVariable($loopKey,$this->template);
+    }
+
     private $template;
 
     private $configObj;
