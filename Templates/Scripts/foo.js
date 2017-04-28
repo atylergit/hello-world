@@ -19,6 +19,9 @@
 //         $("#buttonResults > div").addClass('alert alert-danger alert-dismissable');
 //     });
 // });
+jQuery.on('submit', "form", function (event) {
+    event.preventDefault();
+});
 
 function doAjaxCall(form) {
     var array = jQuery(form).serializeArray();
@@ -29,7 +32,6 @@ function doAjaxCall(form) {
     });
 
     console.log(json);
-    form.preventDefault();
     // jQuery.post("Ajax/ajaxGateway.php", , function(data){
     //
     // });
