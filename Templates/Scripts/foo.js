@@ -7,7 +7,7 @@ $(document).on('click', "#DoSomethingButton", function () {
         var result = JSON.parse(data);
         $("#buttonResults").html('<p>'+ result.friendlyText +'</p>');
         $("#buttonResults").removeClass();
-        $("#buttonResults").addClass('alert alert-success dismissible');
+        $("#buttonResults").addClass('alert alert-success alert-dismissable');
     });
 });
 
@@ -16,6 +16,6 @@ $(document).on('click', "#TriggerErrorButton", function () {
         var result = JSON.parse(data);
         $("#buttonResults").html('<p>'+ result.friendlyText +'</p>');
         $("#buttonResults").removeClass();
-        $("#buttonResults").addClass('alert alert-danger dismissible');
+        $("#buttonResults").addClass('alert alert-danger alert-dismissable');
     });
 });
