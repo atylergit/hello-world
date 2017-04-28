@@ -67,7 +67,7 @@ class TemplateLoaderObj
                 throw new Exception('Type not give, Invalid Parameter');
                 break;
         }
-        $this->AddTemplateVariable($loopKey,$this->template);
+        $this->AddTemplateVariable($loopKey,$loopContent);
     }
 
     private $template;
