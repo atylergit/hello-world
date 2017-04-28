@@ -3,7 +3,7 @@
  */
 
 $(document).on('click', "#DoSomethingButton", function () {
-    jQuery.post("/Ajax/ajaxGateway.php", {command:'DoSomething'}, function(data){
+    jQuery.post("Ajax/ajaxGateway.php", {command:'DoSomething'}, function(data){
         console.log(data);
     });
 });
