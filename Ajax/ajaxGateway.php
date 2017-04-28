@@ -27,7 +27,7 @@ if (!class_exists($command)) {
 }
 
 try {
-    echo json_decode($container->$command->Run());
+    echo json_encode($container->$command->Run());
 } catch (Exception $exception) {
     $output = array(
         'status' => 'error',
