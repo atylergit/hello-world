@@ -21,6 +21,7 @@
 // });
 
 function doAjaxCall(form) {
+    console.log(form);
     var data = JSON.stringify( $(form).serializeArray() );
     console.log(data);
     // jQuery.post("Ajax/ajaxGateway.php", , function(data){
