@@ -4,7 +4,7 @@
 
 $(document).on('click', "#DoSomethingButton", function () {
     jQuery.post("Ajax/ajaxGateway.php", {command:'DoSomething'}, function(data){
-        var result = data.parse();
+        var result = JSON.parse(data);
         $("#dosomethingbutton").after().html('</br><p>'+ result.friendlyText +'</p>');
     });
 });
