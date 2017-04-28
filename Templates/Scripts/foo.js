@@ -6,7 +6,7 @@ $(document).on('click', "#DoSomethingButton", function () {
     jQuery.post("Ajax/ajaxGateway.php", {command:'DoSomething'}, function(data){
         var result = JSON.parse(data);
         $("#buttonResults").html('<p>'+ result.friendlyText +'</p>');
-        $("#buttonResults").addClass('alert alert-danger');
+        $("#buttonResults").addClass('alert alert-success');
     });
 });
 
