@@ -4,6 +4,7 @@
 
 $(document).on('click', "#DoSomethingButton", function () {
     jQuery.post("Ajax/ajaxGateway.php", {command:'DoSomething'}, function(data){
-        console.log(data);
+        var result = data.parse();
+        $("#dosomethingbutton").after().html('</br><p>'+ result.friendlyText +'</p>');
     });
 });
