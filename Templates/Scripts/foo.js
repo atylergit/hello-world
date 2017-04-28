@@ -19,7 +19,7 @@
 //         $("#buttonResults > div").addClass('alert alert-danger alert-dismissable');
 //     });
 // });
-jQuery.on('submit', "form", function (event) {
+$(document).on('submit', "form", function (event) {
     event.preventDefault();
 });
 
