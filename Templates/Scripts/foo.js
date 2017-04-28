@@ -28,7 +28,7 @@ function doAjaxCall(form) {
     var json = [];
 
     jQuery.each(array, function() {
-        json[this.name] = this.value || '';
+        json[array.name] = array.value || '';
     });
 
     console.log(json);
