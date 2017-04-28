@@ -1,6 +1,7 @@
 .footer {
     position: absolute;
     bottom: 0;
+    float: left;
     width: 100vw;
     height: 60px;
     background-color: #f5f5f5;
