@@ -21,9 +21,15 @@
 // });
 
 function doAjaxCall(form) {
-    console.log(form);
-    var data = JSON.stringify( form.serializeArray() );
-    console.log(data);
+    var array = jQuery(form).serializeArray();
+    var json = {};
+
+    jQuery.each(array, function() {
+        json[this.name] = this.value || '';
+    });
+
+    console.log(json);
+    form.preventDefault();
     // jQuery.post("Ajax/ajaxGateway.php", , function(data){
     //
     // });

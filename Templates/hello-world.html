@@ -29,8 +29,14 @@
 
         <div class="col-sm-4">
             <p>These little guys do ajax calls, one does a successful call, the other is an error:</p>
-            <button type="button" class="btn btn-primary" value="foo" onclick="doAjaxCall(this);">Click Me</button>
-            <button type="button" class="btn btn-danger" value="bar" onclick="doAjaxCall(this);">Trigger Error</button>
+            <form onsubmit="doAjaxCall();">
+                <input type="hidden" name="command" value="DoSomething">
+                <button type="submit" class="btn btn-primary" onclick="doAjaxCall(this);">Click Me</button>
+            </form>
+            <form onsubmit="doAjaxCall();">
+                <input type="hidden" name="command" value="TriggerError">
+                <button type="submit" class="btn btn-danger"">Click Me</button>
+            </form>
             <div id="buttonResults">
             </div>
         </div>
