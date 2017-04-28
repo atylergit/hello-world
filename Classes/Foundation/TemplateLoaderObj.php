@@ -46,28 +46,26 @@ class TemplateLoaderObj
     public function AddLoopContent($loopKey, $array, $type, $tag, $br = false, $count = null)
     {
         $loopContent = '';
+        $type        = strtolower($type);
         switch ($type) {
             case 'for':
-                if(is_null($count) || !is_int($count)) {
-                    throw new Exception('Count required in loop type "for, Invalid Parameter"');
-                    break;
+                if (is_null($count) || !is_int($count)) {
+                    $count = count($array);
                 }
-                for($i=0; $i<$count; $i++) {
-                    $loopContent .= "<{$tag} id='$array[$i]'>{$array[$i]}</{$tag}>" . $br == true?'</br>':'';
+                for ($i = 0; $i < $count; $i++) {
+                    $loopContent .= "<{$tag} id='$array[$i]'>{$array[$i]}</{$tag}>" . ($br == true ? '</br>' : '');
                 }
                 break;
             case 'foreach':
                 foreach ($array as $key => $value) {
-                    $loopContent .= "<{$tag} id='{$key}'>{$value}</{$tag}>" . $br == true?'</br>':'';
+                    $loopContent .= "<{$tag} id='{$key}'>{$value}</{$tag}>" . ($br == true ? '</br>' : '');
                 }
                 break;
-            case 'while':
-                break;
             default:
-                throw new Exception('Type not give, Invalid Parameter');
+                throw new Exception('Type not given or not valid for method, Invalid Parameter');
                 break;
         }
-        $this->AddTemplateVariable($loopKey,$loopContent);
+        $this->AddTemplateVariable($loopKey, $loopContent);
     }
 
     private $template;
