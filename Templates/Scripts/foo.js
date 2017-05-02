@@ -26,7 +26,12 @@ $(document).on('submit', "form", function (event) {
 function doAjaxCall(form) {
     console.log(form);
     var array = jQuery(form).serializeArray();
+    var postData = [];
     console.log(array);
+    jQuery.each(array, function() {
+        postData[array.name] = array.value;
+    });
+    console.log(postData);
     jQuery.post("Ajax/ajaxGateway.php", array[0], function(data){
         var result = JSON.parse(data);
         if (result.status == 'error') {
