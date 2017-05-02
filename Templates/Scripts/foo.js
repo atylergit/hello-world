@@ -6,8 +6,8 @@ $(document).on('submit', "form", function (event) {
     event.preventDefault();
 });
 
-$(".alert a.close").click(function (e) {
-    $(this).parent().fadeOut('slow');
+$("a.close").click(function (e) {
+    $(this).parent().fadeOut(400);
 });
 
 function doAjaxCall(form) {
@@ -28,14 +28,14 @@ function doAjaxCall(form) {
         if (result.status == 'error') {
             $("#buttonResults").html(alertHtml);
             $("#buttonResults > div").removeClass();
-            $("#buttonResults > div").addClass('alert alert-danger alert-dismissable fade in');
-            $("#buttonResults > div").show('slow');
+            $("#buttonResults > div").addClass('alert alert-danger alert-dismissable');
+            $("#buttonResults > div").show(400);
             console.log(result);
         } else if(result.alert !== 'undefined') {
             $("#buttonResults").html(alertHtml);
             $("#buttonResults > div").removeClass();
-            $("#buttonResults > div").addClass('alert alert-success alert-dismissable fade in');
-            $("#buttonResults > div").show('slow');
+            $("#buttonResults > div").addClass('alert alert-success alert-dismissable');
+            $("#buttonResults > div").show(400);
             console.log(result.data);
         }
     });
