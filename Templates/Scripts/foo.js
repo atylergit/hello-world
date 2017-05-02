@@ -8,6 +8,7 @@ $(document).on('submit', "form", function (event) {
 
 $("#alertClose").click(function (e) {
     e.preventDefault();
+    console.log('the listener is working');
     $("#buttonResults > div").hide(400);
 });
 
