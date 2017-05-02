@@ -8,15 +8,9 @@ $(document).on('submit', "form", function (event) {
 
 $(document).on('click', "#alertClose", function (event) {
     event.preventDefault();
-    console.log('the listener is working');
+    console.log(event);
     $("#buttonResults > div").hide(400);
 });
-
-// $("#alertClose").click(function (e) {
-//     e.preventDefault();
-//     console.log('the listener is working');
-//     $("#buttonResults > div").hide(400);
-// });
 
 function doAjaxCall(form) {
     var array = jQuery(form).serializeArray();
