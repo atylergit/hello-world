@@ -26,7 +26,7 @@ $(document).on('submit', "form", function (event) {
 function doAjaxCall(form) {
     var array = jQuery(form).serializeArray();
     var json = [];
-    console.log(array);
+    console.log(form);
     jQuery.each(array, function() {
         json[array.name] = array.value || '';
     });
