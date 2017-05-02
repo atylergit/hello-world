@@ -6,11 +6,17 @@ $(document).on('submit', "form", function (event) {
     event.preventDefault();
 });
 
-$("#alertClose").click(function (e) {
-    e.preventDefault();
+$(document).on('click', "#alertClose", function (event) {
+    event.preventDefault();
     console.log('the listener is working');
     $("#buttonResults > div").hide(400);
 });
+
+// $("#alertClose").click(function (e) {
+//     e.preventDefault();
+//     console.log('the listener is working');
+//     $("#buttonResults > div").hide(400);
+// });
 
 function doAjaxCall(form) {
     var array = jQuery(form).serializeArray();
