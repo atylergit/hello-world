@@ -29,13 +29,13 @@ function doAjaxCall(form) {
             $("#buttonResults").html(alertHtml);
             $("#buttonResults > div").removeClass();
             $("#buttonResults > div").addClass('alert alert-danger alert-dismissable fade in');
-            $("#buttonResults > div").show();
+            $("#buttonResults > div").show('slow');
             console.log(result);
         } else if(result.alert !== 'undefined') {
             $("#buttonResults").html(alertHtml);
             $("#buttonResults > div").removeClass();
             $("#buttonResults > div").addClass('alert alert-success alert-dismissable fade in');
-            $("#buttonResults > div").show();
+            $("#buttonResults > div").show('slow');
             console.log(result.data);
         }
     });
