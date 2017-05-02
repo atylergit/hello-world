@@ -28,7 +28,7 @@ function doAjaxCall(form) {
     var array = jQuery(form).serializeArray();
     var postData = [];
     // console.log(array);
-    postData = jQuery.each(array, function(name, value) {
+    postData = $(array).each(function(name, value) {
         postData = jQuery.each(value, function (name, value) {
            postData[name] = value;
            return postData;
