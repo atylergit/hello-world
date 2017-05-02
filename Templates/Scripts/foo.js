@@ -30,6 +30,7 @@ function doAjaxCall(form) {
     // console.log(array);
     jQuery.each(array, function(name, value) {
         console.log(name + ' : ' + value);
+        console.log(value);
         // postData[array.name] = array.value;
         // return postData;
     });
