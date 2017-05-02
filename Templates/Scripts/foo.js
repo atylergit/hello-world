@@ -28,8 +28,8 @@ function doAjaxCall(form) {
     var array = jQuery(form).serializeArray();
     var postData = [];
     console.log(array);
-    postData = jQuery.each(array, function(name, value) {
-        postData[name] = value;
+    postData = jQuery.each(array, function() {
+        postData[array.name] = array.value;
         return postData;
     });
     console.log(postData);
