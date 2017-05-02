@@ -18,7 +18,7 @@ class AjaxDoSomethingObj extends AjaxBaseControllerObjAbs
         $returnArr = array(
             'status' => 'success',
             'message' => 'Yay you did something',
-            'data' => array(),
+            'data' => array($_POST['something']),
             'friendlyText' => 'Nothing really happened but the command exists and it\'s working'
         );
 
