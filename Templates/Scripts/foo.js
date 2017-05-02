@@ -31,7 +31,7 @@ function doAjaxCall(form) {
         json[array.name] = array.value || '';
     });
 
-    jQuery.post("Ajax/ajaxGateway.php", json, function(data){
+    jQuery.post("Ajax/ajaxGateway.php", json[0], function(data){
         var result = JSON.parse(data);
         if (result.status == 'error') {
             $("#buttonResults").html('<div><a href="#" class="close" data-dismiss="alert" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>');
