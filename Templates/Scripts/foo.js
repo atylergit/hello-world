@@ -33,6 +33,15 @@ function doAjaxCall(form) {
 
     jQuery.post("Ajax/ajaxGateway.php", json, function(data){
         var result = JSON.parse(data);
-        console.log(result);
+        if (result.status == 'error') {
+            $("#buttonResults").html('<div><a href="#" class="close" data-dismiss="alert" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>');
+            $("#buttonResults > div").removeClass();
+            $("#buttonResults > div").addClass('alert alert-danger alert-dismissable');
+            console.log(result);
+        } else {
+            $("#buttonResults").html('<div><a href="#" class="close" data-dismiss="alert" aria-label="close">&#215;</a>' + result.friendlyText + '</div>');
+            $("#buttonResults > div").removeClass();
+            $("#buttonResults > div").addClass('alert alert-success alert-dismissable');
+        }
     });
 }
