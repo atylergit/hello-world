@@ -32,8 +32,8 @@ try {
 } catch (Exception $exception) {
     $output = array(
         'status' => 'error',
-        'error' => $exception,
-        'friendlyText' => $exception
+        'error' => $exception->getTraceAsString(),
+        'friendlyText' => $exception->getMessage()
     );
     die(json_encode($output));
 }
