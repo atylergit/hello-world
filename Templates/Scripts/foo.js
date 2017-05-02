@@ -26,11 +26,11 @@ $(document).on('submit', "form", function (event) {
 function doAjaxCall(form) {
     var array = jQuery(form).serializeArray();
     var json = [];
-    jQuery.each(array, function() {
-        json[array.name] = array.value || '';
-    });
-    console.log(json);
-    jQuery.post("Ajax/ajaxGateway.php", json[0], function(data){
+    // jQuery.each(array, function() {
+    //     json[array.name] = array.value || '';
+    // });
+    // console.log(json);
+    jQuery.post("Ajax/ajaxGateway.php", array[0], function(data){
         var result = JSON.parse(data);
         if (result.status == 'error') {
             $("#buttonResults").html('<div><a href="#" class="close" data-dismiss="alert" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>');
