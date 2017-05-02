@@ -9,7 +9,7 @@ $(document).on('submit', "form", function (event) {
 $(document).on('click', "#alertClose", function (event) {
     event.preventDefault();
     console.log(event);
-    event.target.parent.hide(400);
+    event.target.parent().hide(400);
     // $("#buttonResults > div").hide(400);
 });
 
