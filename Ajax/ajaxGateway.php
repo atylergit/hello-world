@@ -11,7 +11,8 @@ if (!isset($_POST['command']) || is_null($_POST['command']) || '' === $_POST['co
     $output = array(
         'status' => 'error',
         'error' => 'POST command is required and was not supplied',
-        'friendlyText' => 'There was an error, please contact an admin'
+        'friendlyText' => 'There was an error, please contact an admin',
+        'request' => print_r($_POST, true)
     );
     die(json_encode($output));
 }
