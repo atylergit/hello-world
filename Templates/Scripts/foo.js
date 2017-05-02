@@ -34,7 +34,7 @@ function doAjaxCall(form) {
 
         return postData;
     });
-    // console.log(postData);
+    console.log(postData);
     jQuery.post("Ajax/ajaxGateway.php", postData, function(data){
         var result = JSON.parse(data);
         if (result.status == 'error') {
