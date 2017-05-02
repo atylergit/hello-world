@@ -30,10 +30,9 @@ try {
     // Perform the actual run of the command and echo it's return
     echo json_encode($commandObj->Run());
 } catch (Exception $exception) {
-    print_r($exception->getTrace());
     $output = array(
         'status' => 'error',
-        'error' => $trace,
+        'error' => "Exception thrown in: {$exception->getFile()} on line: {$exception->getLine()}",
         'friendlyText' => $exception->getMessage()
     );
     die(json_encode($output));
