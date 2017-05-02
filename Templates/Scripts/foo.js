@@ -28,11 +28,13 @@ function doAjaxCall(form) {
     var array = jQuery(form).serializeArray();
     var postData = [];
     // console.log(array);
-    jQuery.each(array, function(name, value) {
-        console.log(name + ' : ' + value);
-        console.log(value);
-        // postData[array.name] = array.value;
-        // return postData;
+    postData = jQuery.each(array, function(name, value) {
+        postData = jQuery.each(value, function (name, value) {
+           postData[name] = value;
+           return postData;
+        });
+
+        return postData;
     });
     // console.log(postData);
     jQuery.post("Ajax/ajaxGateway.php", postData, function(data){
