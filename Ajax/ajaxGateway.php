@@ -30,7 +30,7 @@ try {
     // Perform the actual run of the command and echo it's return
     echo json_encode($commandObj->Run());
 } catch (Exception $exception) {
-    $trace = print_r($exception->getTrace(), true);
+    print_r($exception->getTrace());
     $output = array(
         'status' => 'error',
         'error' => $trace,
