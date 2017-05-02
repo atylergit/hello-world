@@ -32,7 +32,7 @@ try {
 } catch (Exception $exception) {
     $output = array(
         'status' => 'error',
-        'error' => $exception->getTraceAsString(),
+        'error' => print_r($exception->getTrace(), true),
         'friendlyText' => $exception->getMessage()
     );
     die(json_encode($output));
