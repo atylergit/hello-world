@@ -24,12 +24,10 @@ $(document).on('submit', "form", function (event) {
 });
 
 function doAjaxCall(form) {
-    // console.log(form);
     var array = jQuery(form).serializeArray();
     var postData = [];
-    // console.log(array);
     postData = $(array).each(function(name, value) {
-        postData = jQuery.each(value, function (name, value) {
+        postData = $(value).each(function (name, value) {
            postData[name] = value;
            return postData;
         });
