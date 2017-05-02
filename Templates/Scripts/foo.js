@@ -31,8 +31,8 @@ function doAjaxCall(form) {
         json[array.name] = array.value || '';
     });
 
-    // console.log(json);
-    // jQuery.post("Ajax/ajaxGateway.php", , function(data){
-    //
-    // });
+    jQuery.post("Ajax/ajaxGateway.php", json, function(data){
+        var result = JSON.parse(data);
+        console.log(result);
+    });
 }
