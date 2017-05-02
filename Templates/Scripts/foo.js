@@ -24,22 +24,23 @@ $(document).on('submit', "form", function (event) {
 });
 
 function doAjaxCall(form) {
-    console.log(form);
+    // console.log(form);
     var array = jQuery(form).serializeArray();
     var postData = [];
-    console.log(array);
-    postData = jQuery.each(array, function() {
-        postData[array.name] = array.value;
-        return postData;
+    // console.log(array);
+    jQuery.each(array, function(name, value) {
+        console.log(name + ' : ' + value);
+        // postData[array.name] = array.value;
+        // return postData;
     });
-    console.log(postData);
-    jQuery.post("Ajax/ajaxGateway.php", array[0], function(data){
+    // console.log(postData);
+    jQuery.post("Ajax/ajaxGateway.php", postData, function(data){
         var result = JSON.parse(data);
         if (result.status == 'error') {
             $("#buttonResults").html('<div><a href="#" class="close" data-dismiss="alert" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>');
             $("#buttonResults > div").removeClass();
             $("#buttonResults > div").addClass('alert alert-danger alert-dismissable');
-            console.log(result);
+            // console.log(result);
         } else {
             $("#buttonResults").html('<div><a href="#" class="close" data-dismiss="alert" aria-label="close">&#215;</a>' + result.friendlyText + '</div>');
             $("#buttonResults > div").removeClass();
