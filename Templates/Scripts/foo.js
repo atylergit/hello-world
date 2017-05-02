@@ -6,8 +6,8 @@ $(document).on('submit', "form", function (event) {
     event.preventDefault();
 });
 
-$("a.close").click(function (e) {
-    $(this).parent().fadeOut(400);
+$("#alertClose").click(function (e) {
+    $("#buttonResults > div").hide(400);
 });
 
 function doAjaxCall(form) {
@@ -24,7 +24,7 @@ function doAjaxCall(form) {
     console.log(postData);
     jQuery.post("Ajax/ajaxGateway.php", postData, function(data){
         var result = JSON.parse(data);
-        var alertHtml = '<div style="display: none"><a href="#" class="close" data-dismiss="alert" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>'
+        var alertHtml = '<div style="display: none"><a href="#" id="alertClose" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>'
         if (result.status == 'error') {
             $("#buttonResults").html(alertHtml);
             $("#buttonResults > div").removeClass();
