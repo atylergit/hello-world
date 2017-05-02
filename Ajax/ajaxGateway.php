@@ -5,17 +5,26 @@
  * Date: 4/28/2017
  * Time: 8:38 AM
  */
-require_once('../start.php');
 
 try {
+    require_once('../start.php');
+
+    if (!isset($_POST['command']) || is_null($_POST['command']) || '' === $_POST['command']) {
+        throw new Exception("POST command is required and was not supplied");
+    }
+
     $command = 'Ajax' . $_POST['command'] . 'Obj';
     if (!class_exists($command)) {
         throw new Exception('The provided command is invalid');
     }
-    /** @var AjaxBaseControllerObjAbs $commandObj */
+
+    /**
+     * This will give us some basic auto-complete on the commands and tells us what is actually happening
+     *
+     * @var AjaxBaseControllerObjAbs $commandObj
+     */
     $commandObj = $container->$command;
 
-    // Basic request validation, more advanced validation should be done in the called class where the command specific code and logic lives
     $commandObj->ValidateCommand();
 
     // Perform the actual run of the command and echo it's return
@@ -24,7 +33,7 @@ try {
     $output = array(
         'status' => 'error',
         'error' => $exception,
-        'friendlyText' => 'There was an error, please contact an admin'
+        'friendlyText' => $exception
     );
     die(json_encode($output));
 }

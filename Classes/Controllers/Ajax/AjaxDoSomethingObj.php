@@ -24,4 +24,15 @@ class AjaxDoSomethingObj extends AjaxBaseControllerObjAbs
 
         return $returnArr;
     }
+
+    public function ValidateCommand()
+    {
+        if (!isset($_POST['something'])) {
+            throw new Exception('POST index "something" not set, this is required');
+        }
+
+        if (!isset($_POST['selection'])) {
+            throw new Exception('POST index "selection" not set, this is required');
+        }
+    }
 }
