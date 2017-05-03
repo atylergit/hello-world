@@ -34,6 +34,7 @@ function doAjaxCall(form) {
         $("#buttonResults > div").removeClass();
         $("#buttonResults > div").hide(400, function () {
             $("#buttonResults").html(alertHtml);
+            $("#buttonResults > div").show(400);
         });
 
         if (result.status == 'error') {
@@ -42,6 +43,5 @@ function doAjaxCall(form) {
         } else {
             $("#buttonResults > div").addClass('alert alert-success alert-dismissable');
         }
-        $("#buttonResults > div").show(400);
     });
 }
