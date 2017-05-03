@@ -8,7 +8,6 @@ $(document).on('submit', "form", function (event) {
 
 $(document).on('click', "#alertClose", function (event) {
     event.preventDefault();
-
     $("#alertClose").parent().hide(400);
 });
 
@@ -23,22 +22,20 @@ function doAjaxCall(form) {
 
         return postData;
     });
-    console.log(postData);
+
     jQuery.post("Ajax/ajaxGateway.php", postData, function(data){
         var result = JSON.parse(data);
         var alertHtml = '<div style="display: none"><a href="#" class="close" id="alertClose" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>'
+        $("#alertClose").parent().hide(400);
+        $("#buttonResults > div").removeClass();
+        $("#buttonResults").html(alertHtml);
+
         if (result.status == 'error') {
-            $("#buttonResults").html(alertHtml);
-            $("#buttonResults > div").removeClass();
             $("#buttonResults > div").addClass('alert alert-danger alert-dismissable');
-            $("#buttonResults > div").show(400);
             console.log(result);
-        } else if(result.alert !== 'undefined') {
-            $("#buttonResults").html(alertHtml);
-            $("#buttonResults > div").removeClass();
+        } else {
             $("#buttonResults > div").addClass('alert alert-success alert-dismissable');
-            $("#buttonResults > div").show(400);
-            console.log(result.data);
         }
+        $("#buttonResults > div").show(400);
     });
 }
