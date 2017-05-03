@@ -4,7 +4,6 @@
 
 $(document).on('submit', "form", function (event) {
     event.preventDefault();
-    $("#alertClose").parent().hide(400);
 });
 
 $(document).on('click', "#alertClose", function (event) {
@@ -13,6 +12,7 @@ $(document).on('click', "#alertClose", function (event) {
 });
 
 function doAjaxCall(form) {
+    $("#buttonResults > div").hide(400);
     var array = jQuery(form).serializeArray();
     var postData = [];
     postData = $(array).each(function(name, value) {
