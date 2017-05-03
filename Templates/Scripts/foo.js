@@ -12,9 +12,7 @@ $(document).on('click', "#alertClose", function (event) {
 });
 
 function closeTheThing () {
-    console.log('its in the function');
-    $("#alertClose").parent().hide(400).delay(400);
-    console.log('it didint bail...');
+    $("#alertClose").parent().hide(400);
 }
 
 function doAjaxCall(form) {
@@ -34,7 +32,9 @@ function doAjaxCall(form) {
         var result = JSON.parse(data);
         var alertHtml = '<div style="display: none"><a href="#" class="close" id="alertClose" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>';
         $("#buttonResults > div").removeClass();
-        // $("#buttonResults").html(alertHtml);
+        $("#alertClose").parent().hide(400).done(function () {
+            $("#buttonResults").html(alertHtml);
+        });
 
         if (result.status == 'error') {
             $("#buttonResults > div").addClass('alert alert-danger alert-dismissable');
