@@ -13,7 +13,7 @@ $(document).on('click', "#alertClose", function (event) {
 
 function closeTheThing () {
     console.log('its in the function');
-    $("#alertClose").parent().hide(400);
+    $("#alertClose").parent().hide(400).delay(400);
     console.log('it didint bail...');
 }
 
