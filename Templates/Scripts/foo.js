@@ -32,7 +32,7 @@ function doAjaxCall(form) {
         var result = JSON.parse(data);
         var alertHtml = '<div style="display: none"><a href="#" class="close" id="alertClose" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>';
         $("#buttonResults > div").removeClass();
-        $("#alertClose").parent().hide(400).done(function () {
+        $("#buttonResults > div").hide(400).done(function () {
             $("#buttonResults").html(alertHtml);
         });
 
