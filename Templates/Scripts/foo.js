@@ -11,10 +11,6 @@ $(document).on('click', "#alertClose", function (event) {
     $("#alertClose").parent().hide(400);
 });
 
-function closeTheThing () {
-    $("#alertClose").parent().hide(400);
-}
-
 function doAjaxCall(form) {
     var array = jQuery(form).serializeArray();
     var postData = [];
@@ -28,7 +24,6 @@ function doAjaxCall(form) {
     });
 
     jQuery.post("Ajax/ajaxGateway.php", postData, function(data){
-        closeTheThing();
         var result = JSON.parse(data);
         var alertHtml = '<div style="display: none"><a href="#" class="close" id="alertClose" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>';
         $("#buttonResults > div").removeClass();
