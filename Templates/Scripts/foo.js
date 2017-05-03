@@ -35,13 +35,12 @@ function doAjaxCall(form) {
         $("#buttonResults > div").hide(400, function () {
             $("#buttonResults").html(alertHtml);
             $("#buttonResults > div").show(400);
+            if (result.status == 'error') {
+                $("#buttonResults > div").addClass('alert alert-danger alert-dismissable');
+                console.log(result);
+            } else {
+                $("#buttonResults > div").addClass('alert alert-success alert-dismissable');
+            }
         });
-
-        if (result.status == 'error') {
-            $("#buttonResults > div").addClass('alert alert-danger alert-dismissable');
-            console.log(result);
-        } else {
-            $("#buttonResults > div").addClass('alert alert-success alert-dismissable');
-        }
     });
 }
