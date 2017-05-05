@@ -11,6 +11,8 @@ $(document).on('click', "#alertClose", function (event) {
     $("#alertClose").parent().hide(400);
 });
 
+
+
 function doAjaxCall(form) {
     var array = jQuery(form).serializeArray();
     var postData = [];

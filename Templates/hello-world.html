@@ -17,38 +17,75 @@
     <strong>Todays Date: @=@today@=@</strong>
     <p>Hello there Mr. World!</p>
 </div>
-<div class="container">
-    <div class="row">
-        <div id="buttonResults">
-            <div style="display: none"><a href="#" class="close" id="alertClose" aria-label="close">&#215;</a>Yay, I'm a fairy</div>
-        </div>
-        <div class="col-sm-4">
-            <p>Here look a demonstration of a foreach loop in the template</p>
-            <ul>
-                @=@mrLoopy@=@
-            </ul>
-            <p>I will say though, it would be better to do an ajax call for something like this and parse the data via JS</p>
-        </div>
 
-        <div class="col-sm-4">
-            <p>These little guys do ajax calls, one does a successful call, the other is an error:</p>
-            <form onsubmit="doAjaxCall(this);">
-                <input type="hidden" name="command" value="DoSomething">
-                <input type="hidden" name="something" value="secretSauce">
-                <select name="selection">
-                    <option name="option1" value="1">1</option>
-                    <option name="option2" value="2">2</option>
-                    <option name="option3" value="3">3</option>
-                    <option name="option4" value="4">4</option>
-                </select>
-                <br>
-                Check if you like Checkboxes? <input type="checkbox" name="aCheckBox" value="true">
-                <br>
-                <button type="submit" class="btn btn-primary">Click Me</button>
-            </form>
-            <hr>
-            <form onsubmit="doAjaxCall(this);">
-                <input type="hidden" name="command" value="TriggerError">
-                <button type="submit" class="btn btn-danger"">Click Me</button>
-            </form>
+<div id="wrapper">
+    <div class="container-fluid">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
         </div>
+        <div id="page-content-wrapper">
+        <div class="row">
+            <div id="buttonResults">
+                <div style="display: none"><a href="#" class="close" id="alertClose" aria-label="close">&#215;</a>Yay,
+                    I'm a fairy
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <p>Here look a demonstration of a foreach loop in the template</p>
+                <ul>
+                    @=@mrLoopy@=@
+                </ul>
+                <p>I will say though, it would be better to do an ajax call for something like this and parse the data
+                    via JS</p>
+            </div>
+
+            <div class="col-sm-4">
+                <p>These little guys do ajax calls, one does a successful call, the other is an error:</p>
+                <form onsubmit="doAjaxCall(this);">
+                    <input type="hidden" name="command" value="DoSomething">
+                    <input type="hidden" name="something" value="secretSauce">
+                    <select name="selection">
+                        <option name="option1" value="1">1</option>
+                        <option name="option2" value="2">2</option>
+                        <option name="option3" value="3">3</option>
+                        <option name="option4" value="4">4</option>
+                    </select>
+                    <br>
+                    Check if you like Checkboxes? <input type="checkbox" name="aCheckBox" value="true">
+                    <br>
+                    <button type="submit" class="btn btn-primary">Click Me</button>
+                </form>
+                <hr>
+                <form onsubmit="doAjaxCall(this);">
+                    <input type="hidden" name="command" value="TriggerError">
+                    <button type="submit" class="btn btn-danger"
+                    ">Click Me</button>
+                </form>
+            </div>
