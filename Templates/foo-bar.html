@@ -12,18 +12,23 @@
         server path: @=@serverPath@=@</p>
 </div>
 </div>
-</div>
-</div>
 <footer class="footer">
     <div class="container footer_contents">
         <p class="text-muted">Here is a footer</p>
     </div>
 </footer>
 <script>
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+//    $("#menu-toggle").click(function (e) {
+//        e.preventDefault();
+//        $("#wrapper").toggleClass("toggled");
+//    });
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
 </script>
 </body>
 </html>
