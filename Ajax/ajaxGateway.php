@@ -33,7 +33,8 @@ try {
     $output = array(
         'status' => 'error',
         'error' => "Exception thrown in: {$exception->getFile()} on line: {$exception->getLine()}",
-        'friendlyText' => $exception->getMessage()
+        'friendlyText' => $exception->getMessage(),
+        'alert' => 'true',
     );
     die(json_encode($output));
 }
