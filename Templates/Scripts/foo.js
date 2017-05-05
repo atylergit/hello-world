@@ -26,8 +26,8 @@ function doAjaxCall(form) {
     jQuery.post("Ajax/ajaxGateway.php", postData, function(data){
         var result = JSON.parse(data);
         var alertHtml = '<div style="display: none"><a href="#" class="close" id="alertClose" aria-label="close">&#215;</a>'+ result.friendlyText +'</div>';
-        $("#buttonResults > div").removeClass();
         $("#buttonResults > div").hide(400, function () {
+            $("#buttonResults > div").removeClass();
             $("#buttonResults").html(alertHtml);
             if (result.status == 'error') {
                 $("#buttonResults > div").addClass('alert alert-danger alert-dismissable');
