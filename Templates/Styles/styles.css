@@ -51,6 +51,6 @@ body {
     background-attachment: scroll;
 }
 
-.sidenav .toggled {
+.toggled {
     width: 250px;
 }
