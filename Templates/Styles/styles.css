@@ -50,3 +50,7 @@ body {
     background-color: #f5f5f5;
     background-attachment: scroll;
 }
+
+.toggled {
+    width: 250px;
+}

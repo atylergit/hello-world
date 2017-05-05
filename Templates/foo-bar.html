@@ -22,13 +22,10 @@
 //        e.preventDefault();
 //        $("#wrapper").toggleClass("toggled");
 //    });
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-}
+$("#mySidenav").on('click', function() {
+    $("#mysidenav").toggleClass("toggled");
+});
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
 </script>
 </body>
 </html>
