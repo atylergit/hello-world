@@ -2,10 +2,6 @@ body {
     overflow-x: hidden;
 }
 
-.container {
-    position: absolute;
-}
-
 /* Toggle Styles */
 
 #wrapper {
