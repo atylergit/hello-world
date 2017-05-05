@@ -40,5 +40,6 @@ function doAjaxCall(form) {
                 $("#buttonResults > div").show(400);
             }
         });
+        return result;
     });
 }
