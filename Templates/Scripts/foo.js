@@ -35,7 +35,10 @@ function doAjaxCall(form) {
             } else {
                 $("#buttonResults > div").addClass('alert alert-success alert-dismissable');
             }
-            $("#buttonResults > div").show(400);
+
+            if (typeof result.alert != 'undefined') {
+                $("#buttonResults > div").show(400);
+            }
         });
     });
 }
