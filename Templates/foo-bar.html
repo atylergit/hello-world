@@ -22,11 +22,10 @@
 //        e.preventDefault();
 //        $("#wrapper").toggleClass("toggled");
 //    });
-
-function toggleNav() {
-    $("#mysidenav").toggleClass("toggled");
-}
-
+$("#mySidenav").on('click', function() {
+    $("#mysidenav").removeClass("toggled");
+    $("#mysidenav").addClass("toggled");
+});
 </script>
 </body>
 </html>
