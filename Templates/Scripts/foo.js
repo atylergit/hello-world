@@ -11,6 +11,10 @@ $(document).on('click', "#alertClose", function (event) {
     $("#alertClose").parent().hide(400);
 });
 
+$(document).on('click', "#openNav", function (event) {
+    $("#mySidenav").toggleClass("toggled");
+});
+
 
 
 function doAjaxCall(form) {

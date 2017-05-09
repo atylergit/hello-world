@@ -54,3 +54,12 @@ body {
 .toggled {
     width: 250px;
 }
+
+.lighten {
+    color: #f1f1f1;
+}
+
+.openBurger {
+    font-size:30px;
+    cursor:pointer;
+}

@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container">
-        <span style="font-size:30px;cursor:pointer" onclick="toggleNav()">&#9776; open</span>
+        <span id="openNav" class="openBurger">&#9776;</span>
 
         <div id="mySidenav" class="sidenav">
             <a href="#">About</a>
@@ -23,17 +23,16 @@
             <a href="#">Contact</a>
         </div>
 
-            <div class="jumbotron text-center">
-                <strong>Todays Date: @=@today@=@</strong>
-                <p>Hello there Mr. World!</p>
-            </div>
+        <div class="jumbotron text-center">
+            <strong>Todays Date: @=@today@=@</strong>
+            <p>Hello there Mr. World!</p>
+        </div>
         <div class="row">
             <div id="buttonResults">
                 <div style="display: none"><a href="#" class="close" id="alertClose" aria-label="close">&#215;</a>Yay,
                     I'm a fairy
                 </div>
             </div>
-            <span style="font-size:30px;cursor:pointer" onclick="toggleNav()">&#9776; open</span>
             <div class="col-sm-4">
                 <p>Here look a demonstration of a foreach loop in the template</p>
                 <ul>
