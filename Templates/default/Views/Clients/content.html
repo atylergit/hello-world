@@ -1,0 +1,56 @@
+<div class="row">
+    <div id="buttonResults">
+        <div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <p>Here look a demonstration of a foreach loop in the template</p>
+        <ul>
+            @=@mrLoopy@=@
+        </ul>
+        <p>I will say though, it would be better to do an ajax call for something like this and parse the data
+            via JS</p>
+    </div>
+
+    <div class="col-sm-4">
+        <p>These little guys do ajax calls, one does a successful call, the other is an error:</p>
+        <form onsubmit="doAjaxCall(this);">
+            <input type="hidden" name="command" value="DoSomething">
+            <input type="hidden" name="something" value="secretSauce">
+            <select name="selection">
+                <option name="option1" value="1">1</option>
+                <option name="option2" value="2">2</option>
+                <option name="option3" value="3">3</option>
+                <option name="option4" value="4">4</option>
+            </select>
+            <br>
+            Check if you like Checkboxes? <input type="checkbox" name="aCheckBox" value="true">
+            <br>
+            <button type="submit" class="btn btn-primary">Click Me</button>
+        </form>
+        <hr>
+        <form onsubmit="doAjaxCall(this);">
+            <input type="hidden" name="command" value="TriggerError">
+            <button type="submit" class="btn btn-danger">Click Me</button>
+        </form>
+    </div>
+    <div class="col-sm-4">
+        <p>This is a second template file, now everything is being split up into pieces. So now you can see how maybe
+            you
+            can
+            have a header, sidebar, body content, footer etc.</p>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-sm-4">
+        <p>As you can see by the date here in the second file (@=@today@=@) template variables are usable in all
+            template
+            files
+            loaded in one instance</p>
+        <p>And here is another variable that was added after the first template file was loaded but before this one was
+            its
+            the
+            server path: @=@serverPath@=@</p>
+    </div>
+</div>

@@ -8,7 +8,7 @@ body {
     position: fixed;
     z-index: 1;
     top: 0;
-    right: 0;
+    left: 0;
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
@@ -31,7 +31,7 @@ body {
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
+    left: 25px;
     font-size: 36px;
     margin-left: 50px;
 }
@@ -42,7 +42,7 @@ body {
 }
 
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100vw;
@@ -60,6 +60,17 @@ body {
 }
 
 .openBurger {
+    z-index: 2;
     font-size:30px;
     cursor:pointer;
+    position: fixed;
+    left: 5px;
+}
+
+.displayDate {
+    top: 0;
+}
+
+#buttonResults div:first-child {
+ display: none;
 }

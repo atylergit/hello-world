@@ -22,11 +22,14 @@ class TemplateLoaderObj
     {
     }
 
-    public function GetTemplate($templateName)
+
+    public $views;
+
+    public function LoadTemplateFile($templateName)
     {
-        $templateFileName = $this->configObj->templatePath . $templateName . '.html';
+        $templateFileName = $this->configObj->templatePath . '/' . $templateName . '.html';
         if (!$this->CheckTemplateFileExists($templateFileName)) {
-            throw new Exception('Template file does not exist');
+            throw new Exception("Template file does not exist {$templateFileName}");
         }
 
         $this->GetTemplateAsString($templateFileName);
@@ -43,7 +46,7 @@ class TemplateLoaderObj
         $this->replacements["{$variableName}"] = $value;
     }
 
-    public function AddLoopContent($loopKey, $array, $type, $tag, $br = false, $count = null)
+    public function AddLoopContent($loopKey, $array, $type, $tag, $br = false, $class = '', $count = null)
     {
         $loopContent = '';
         $type        = strtolower($type);
@@ -53,12 +56,20 @@ class TemplateLoaderObj
                     $count = count($array);
                 }
                 for ($i = 0; $i < $count; $i++) {
-                    $loopContent .= "<{$tag} id='$array[$i]'>{$array[$i]}</{$tag}>" . ($br == true ? '</br>' : '');
+                    if ($tag == 'a') {
+                        $loopContent .= "<{$tag} href='{$array[$i]}' class='{$class}' id='{$array[$i]}'>{$array[$i]}</{$tag}>" . ($br == true ? '</br>' : '');
+                    } else {
+                        $loopContent .= "<{$tag} class='{$class}' id='{$array[$i]}'>{$array[$i]}</{$tag}>" . ($br == true ? '</br>' : '');
+                    }
                 }
                 break;
             case 'foreach':
                 foreach ($array as $key => $value) {
-                    $loopContent .= "<{$tag} id='{$key}'>{$value}</{$tag}>" . ($br == true ? '</br>' : '');
+                    if ($tag == 'a') {
+                        $loopContent .= "<{$tag} href='{$key}' class='{$class}' id='{$key}'>{$value}</{$tag}>" . ($br == true ? '</br>' : '');
+                    } else {
+                        $loopContent .= "<{$tag} class='{$class}' id='{$key}'>{$value}</{$tag}>" . ($br == true ? '</br>' : '');
+                    }
                 }
                 break;
             default:
@@ -66,6 +77,29 @@ class TemplateLoaderObj
                 break;
         }
         $this->AddTemplateVariable($loopKey, $loopContent);
+    }
+
+    public function GetViewsList() {
+        $views = array();
+        $excludePaths = array('..', '.');
+        foreach (scandir($this->configObj->templatePath . '/Views') as $rawView) {
+            if (in_array($rawView, $excludePaths)) {
+                continue;
+            }
+            $views[$rawView] = $this->configObj->templatePath . '/Views/' . $rawView;
+        }
+
+        $this->views = $views;
+    }
+
+    public function GetViewRequest() {
+        if (!isset($_GET['page'])) {
+            $_GET['page'] = 'Home';
+        }
+
+        $view = $_GET['page'];
+
+        return $view;
     }
 
     private $template;

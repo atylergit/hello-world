@@ -17,6 +17,8 @@ class ConfigObj
 
     public $templatePath;
 
+    public $templateName;
+
     public $databaseHost;
 
     public $databaseUser;
@@ -30,7 +32,9 @@ class ConfigObj
     {
         $this->rootPath = $_SERVER["DOCUMENT_ROOT"] . 'foo/hello-world';
 
-        $this->templatePath = $this->rootPath . '/Templates/';
+        $this->templateName = 'default';
+
+        $this->templatePath = $this->rootPath . '/Templates/' . $this->templateName;
     }
 
     function __destruct()
