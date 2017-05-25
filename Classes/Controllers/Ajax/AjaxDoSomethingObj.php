@@ -11,7 +11,7 @@
  * @modifications..:
  *
  ******************************************************************************************/
-class AjaxDoSomethingObj extends AjaxBaseControllerObjAbs
+class AjaxDoSomethingObj extends AjaxControllerObj
 {
     public function Run()
     {

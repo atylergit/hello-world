@@ -67,8 +67,9 @@ body {
     left: 5px;
 }
 
-.displayDate {
-    top: 0;
+.displayDate p {
+    position: absolute;
+    font-size: 10pt;
 }
 
 #buttonResults div:first-child {

@@ -13,9 +13,11 @@
  ******************************************************************************************/
 class TemplateLoaderObj
 {
-    function __construct(ConfigObj $configObj)
+    function __construct(ConfigObj $configObj, AuthenticationObj $authenticationObj)
     {
         $this->configObj = $configObj;
+        $this->authenticationObj = $authenticationObj;
+        $this->authenticationObj->CheckSession();
     }
 
     function __destruct()
@@ -88,6 +90,7 @@ class TemplateLoaderObj
             }
             $views[$rawView] = $this->configObj->templatePath . '/Views/' . $rawView;
         }
+        $views['Default'] = $this->configObj->templatePath . '/Views/' . 'Home';
 
         $this->views = $views;
     }
@@ -105,6 +108,8 @@ class TemplateLoaderObj
     private $template;
 
     private $configObj;
+
+    private $authenticationObj;
 
     private $replacements;
 

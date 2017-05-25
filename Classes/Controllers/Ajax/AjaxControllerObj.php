@@ -11,15 +11,18 @@
  * @modifications..:
  *
  ******************************************************************************************/
-abstract class AjaxBaseControllerObjAbs
+abstract class AjaxControllerObj
 {
     /**
      * AjaxBaseControllerObjAbs constructor.
-     * @param $configObj
+     * @param ConfigObj $configObj
+     * @param AuthenticationObj $authenticationObj
+     * @internal param $
      */
-    function __construct($configObj)
+    function __construct(ConfigObj $configObj, AuthenticationObj $authenticationObj)
     {
-        $this->configObj = $configObj;
+        $this->configObj         = $configObj;
+        $this->authenticationObj = $authenticationObj;
     }
 
     /**
@@ -39,12 +42,16 @@ abstract class AjaxBaseControllerObjAbs
     /**
      * @return array
      */
-    public function Run() {
+    public function Run()
+    {
         return array();
     }
 
     /**
      * @var
      */
-    private $configObj;
+    protected $configObj;
+
+    protected $authenticationObj;
+
 }

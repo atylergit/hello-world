@@ -2,13 +2,37 @@
 <span id="openNav" class="openBurger">&#9776; Menu</span>
 <div class="container">
 
-    <div id="mySidenav" class="sidenav">
-        @=@navLoop@=@
-    </div>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">@MiniWebFramework</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                        @=@navLoopLeft@=@
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><p class="navbar-text">Todays Date: @=@today@=@</p></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            @=@navLoopRight@=@
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <!--<div id="navBar" class="navbar-co">-->
+        <!--@=@navLoop@=@-->
+    <!--</div>-->
 
     <div class="jumbotron">
-        <div class="text-right displayDate">
-            <strong>Todays Date: @=@today@=@</strong>
-        </div>
         <p class="text-center" >Hello there Mr. World!</p>
     </div>

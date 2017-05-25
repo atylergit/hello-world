@@ -21,7 +21,7 @@ try {
     /**
      * This will give us some basic auto-complete on the commands and tells us what is actually happening
      *
-     * @var AjaxBaseControllerObjAbs $commandObj
+     * @var AjaxControllerObj $commandObj
      */
     $commandObj = $container->$command;
 

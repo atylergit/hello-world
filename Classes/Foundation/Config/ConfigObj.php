@@ -19,6 +19,8 @@ class ConfigObj
 
     public $templateName;
 
+    public $adminDirectory;
+
     public $databaseHost;
 
     public $databaseUser;
@@ -35,6 +37,8 @@ class ConfigObj
         $this->templateName = 'default';
 
         $this->templatePath = $this->rootPath . '/Templates/' . $this->templateName;
+
+        $this->adminDirectory = 'Super';
     }
 
     function __destruct()

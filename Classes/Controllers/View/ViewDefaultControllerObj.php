@@ -17,21 +17,13 @@ class ViewDefaultControllerObj extends ViewDefaultBaseControllerObjAbs
     public function LoadTemplate()
     {
         $view = '';
-        $view .= parent::LoadBaseTemplate();
-
-        $arrayStuff = array(
-            'hello' => 'this is a list using a foreach loop',
-            'foo'   => 'here\'s an item',
-            'bar'   => 'And another one',
-            'Aye'   => 'Just one more...'
-        );
-
         try {
-            $this->templateObj->AddLoopContent('mrLoopy', $arrayStuff, 'foreach', 'li');
+            $view .= parent::LoadBaseTemplate();
+            $this->AddCustomTemplateVariables();
 
-            $view .= $this->templateObj->LoadTemplateFile('/Views/' . $this->templateObj->GetViewRequest() . '/content');
+            $view .= $this->templateObj->LoadTemplateFile('Views/' . $this->templateObj->GetViewRequest() . '/content');
         } catch (Exception $e) {
-            //lol yeah it's a nested try but maybe we can gracefully throw an error without puking all over the page
+            //lol yeah it's a nested try-catch but maybe we can gracefully throw an error without puking all over the page if something happens
             try {
                 $this->templateObj->AddTemplateVariable('error', $e->getMessage());
                 if (0 == stripos($e->getMessage(), 'Template file does not exist')) {
@@ -47,5 +39,16 @@ class ViewDefaultControllerObj extends ViewDefaultBaseControllerObjAbs
         $view .= parent::LoadFooterTemplate();
 
         return $view;
+    }
+
+    private function AddCustomTemplateVariables() {
+        $arrayStuff = array(
+            'hello' => 'this is a list using a foreach loop',
+            'foo'   => 'here\'s an item',
+            'bar'   => 'And another one',
+            'Aye'   => 'Just one more...'
+        );
+
+        $this->templateObj->AddLoopContent('mrLoopy', $arrayStuff, 'foreach', 'li');
     }
 }
